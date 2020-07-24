@@ -1,7 +1,7 @@
 # scripts
 
 ### [ttp](https://github.com/silasanderson/scripts/blob/master/ttp.sh)
-togle trackpad
+togle trackpad with xinput 
 
 ### [wttr](https://github.com/silasanderson/scripts/blob/master/wttr.sh)
 my wttr script alow me to run [wttr](https://github.com/chubin/wttr.in) with my custom settings
