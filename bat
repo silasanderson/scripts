@@ -1,3 +1,3 @@
 #!/bin/sh
 
-cat /sys/class/power_supply/BAT0/capacity && cat /sys/class/power_supply/BAT1/capacity
+echo $(cat /sys/class/power_supply/BAT0/capacity /sys/class/power_supply/BAT1/capacity)

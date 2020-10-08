@@ -1,0 +1,4 @@
+while true; do
+	xsetroot -name "$(mt) $(date "+%m/%d/%y%n %H:%M:%S") $(bat) "
+	sleep .5
+done
