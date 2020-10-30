@@ -1,0 +1,17 @@
+#!/bin/bash
+
+    grep -o 'http[^"]*' .w3m/bookmark.html > /tmp/bookmarks
+    grep -o 'http[^"]*' .w3m/history >> /tmp/bookmarks
+
+    cat /tmp/bookmarks | dmenu -l 20 -p W3M: > /tmp/x
+
+    check=$(cat /tmp/x | wc -l)
+    (( check == 0)) && exit
+
+    grep -o http /tmp/x && st -e w3m $(cat /tmp/x) && exit
+    grep -o "www\." /tmp/x && st -e w3m $(cat /tmp/x) && exit
+    grep -o "\.com" /tmp/x && st -e w3m $(cat /tmp/x) && exit
+    grep -o "\.in" /tmp/x && st -e w3m $(cat /tmp/x) && exit
+    grep -o "\.org" /tmp/x && st -e w3m $(cat /tmp/x) && exit
+
+    st -e w3d $(cat /tmp/x)
