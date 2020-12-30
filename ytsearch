@@ -1,0 +1,4 @@
+#!/bin/sh 
+
+sech=$(dmenu -p ytp)
+st -e ytp $(sech)

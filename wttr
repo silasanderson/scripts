@@ -1,3 +1,37 @@
 #!/bin/sh
 
-curl 'wttr.in/?m'
+case $1 in
+		*v)
+		  clear
+			cat ~/.cache/wether/visual
+				;;
+		  "")
+			cat ~/.cache/wether/single
+				;;
+			*h)
+		  clear
+			cat ~/.cache/wether/help
+			;;
+		  *lf)
+		  clear
+			cat ~/.cache/wether/long-full
+			;;
+			*l)
+		  clear
+			cat	~/.cache/wether/long
+			;;
+			*mpv)
+				mpv --loop-file=inf ~/.cache/wether/radar.gif
+			;;
+			*r)
+				chafa --clear -w 9 -c full --symbols braille --fill braille ~/.cache/wether/radar.gif
+			;;
+			*sxhkd)
+				st -f "Mono:pixelsize=6" -e chafa --clear -w 9 -c full --symbols braille --fill braille ~/.cache/wether/radar.gif
+			;;
+		  *)
+			echo wttr: Unknown option argument: "$@"
+		  echo More info with "wttr -h"
+			;;
+
+esac

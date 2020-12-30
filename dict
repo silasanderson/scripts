@@ -1,0 +1,18 @@
+#!/bin/bash
+
+grean() { tput setaf 2; cat; tput sgr0; }
+clear
+
+while true; do
+read -e -p "search| " -i "$input" input
+clear
+
+if [[ $input = "q" ]] || [[ $input = "Q" ]]; then
+		break
+fi
+
+grep --color=always -r -m 20 -i -E $input /usr/share/dict/words
+grep --color=always -i $input /usr/share/dict/words | wc -l | grean
+echo
+
+done

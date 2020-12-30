@@ -4,7 +4,7 @@
 #added 1. Notifications 2.unique names for each type (for quick launch) 3.better photo editor (pinta) 4.dmenu title
 #v0.4
 #1.Added variable for notification timeouts. 2. Show link in notification
-IMG_PATH=~/media/image/screenshot
+IMG_PATH=/mda/image/screenshot
 UL=fb
 EDIT=gimp
 TIME=3000 #Miliseconds notification should remain visible
@@ -33,5 +33,5 @@ a.upload_fullscreen)	scrot -d 1 '%Y-%m-%d-@%H-%M-%S-scrot.png' -e "$UL \$f" && (
 	e.edit_upload_fullscreen)	scrot -d 4 '%Y-%m-%d-@%H-%M-%S-scrot.png' -e "$EDIT \$f && $UL \$f && rm -f \$f"  && notify-send -u low -t $TIME "Scrot" "Screenshot Uploaded (powered by fb) - $(xclip -o)"  ;;
 s.upload_section)	scrot -s '%Y-%m-%d-@%H-%M-%S-scrot.png' -e "$UL \$f"  && (xclip -o;echo) | xclip -selection clipboard   &&  notify-send -u low -t $TIME "Scrot" "Screenshot Uploaded (powered by fb - $(xclip -o)";;
     p.edit_upload_section)  scrot -s '%Y-%m-%d-@%H-%M-%S-scrot.png' -e "$EDIT \$f && $UL \$f && rm -f \$f"  && (xclip -o;echo) | xclip -selection clipboard && notify-send -u low -t $TIME "Scrot" "Screenshot Uploaded (powered by FB) - $(xclip -o)"  ;;
-  	*)		exec "'${cmd}'"  ;;
+  	*) exit	;;
 esac
