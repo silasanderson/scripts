@@ -1,4 +1,0 @@
-#!/bin/sh
-
-curl -# -F inputDocument=@"$1" http://www.doc2pdf.net/convert/document.pdf > "${1%.*}.pdf"
-
