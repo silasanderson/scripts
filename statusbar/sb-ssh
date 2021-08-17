@@ -1,0 +1,2 @@
+#!/bin/sh
+if [ $(systemctl is-active sshd.service) = active ]; then echo 🔗; else exit; fi

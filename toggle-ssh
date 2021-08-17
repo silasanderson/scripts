@@ -1,0 +1,15 @@
+#!/bin/sh
+state=$(systemctl is-active sshd.service)
+
+case $state in
+	"active")
+		doas systemctl stop sshd.service
+		notify-send -t 4000 "ssh off"
+		;;
+	"inactive")
+		doas systemctl start sshd.service
+		notify-send -t 4000 "ssh on"
+		;;
+	*)
+		notify-send -t 4000 "other"
+esac

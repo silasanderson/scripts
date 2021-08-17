@@ -1,0 +1,13 @@
+#!/bin/sh
+
+state="$(mullvad status | awk '{print $3}')"
+case $state in
+	"Connected")
+		mullvad disconnect -w
+		;;
+	"Disconnected")
+		mullvad connect -w
+		;;
+	*)
+		notify-send -t 4000 $state
+esac

@@ -1,0 +1,5 @@
+#!/bin/sh
+content=$(\ls -w 1 mda/video/ | dmenu -l 10)
+movie=$(\ls -w 1 mda/video/"$content" | dmenu -l 10)
+
+mpv mda/video/"$content"/"$movie"

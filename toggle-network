@@ -1,0 +1,15 @@
+#!/bin/sh
+
+state=$(nmcli network)
+case $state in
+	"enabled")
+		nmcli networking off
+		notify-send -t 4000 "network off"
+		;;
+	"disabled")
+		nmcli networking on
+		notify-send -t 4000 "network on"
+		;;
+	*)
+		notify-send -t 4000 $state
+esac

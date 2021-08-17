@@ -1,0 +1,14 @@
+#!/bin/sh
+doas bluetooth toggle > /dev/null
+
+state=$(bluetooth)
+case $state in
+	"bluetooth = off (software)")
+		notify-send -t 4000 "bluetooth off"
+		;;
+	"bluetooth = on")
+		notify-send -t 4000 "bluetooth on"
+		;;
+	*)
+		notify-send -t 4000 $(state)
+esac

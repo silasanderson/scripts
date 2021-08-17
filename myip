@@ -1,0 +1,24 @@
+#!/bin/sh
+
+loc=$(ip route get 1.2.3.4 | awk '{print $7}' | sed -n 1p)
+gat=$(ip route | awk '{print $3}' | sed -n 1p)
+pub=$(curl -s ifconfig.co)
+
+case $1 in
+		*l)
+			echo "$loc"
+				;;
+		*g)
+			echo "$gat"
+				;;
+		*p)
+			echo "$pub"
+				;;
+		"")
+			echo "$loc"
+				;;
+		*)
+		exit
+				;;
+
+esac

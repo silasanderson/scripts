@@ -1,0 +1,15 @@
+#!/bin/sh
+echo "2-3" | doas tee /sys/bus/usb/drivers/usb/unbind
+echo "enabled" | doas tee /sys/class/net/wlp3s0/device/power/wakeup
+echo "enabled" | doas tee /sys/class/net/enp0s31f6/device/power/wakeup
+echo "enabled" | doas tee /sys/bus/usb/devices/usb1/power/wakeup
+echo "enabled" | doas tee /sys/bus/usb/devices/usb2/power/wakeup
+echo "enabled" | doas tee /sys/bus/usb/devices/usb3/power/wakeup
+echo "enabled" | doas tee /sys/bus/usb/devices/usb4/power/wakeup
+doas rfkill block bluetooth
+doas powertop --auto-tune
+mailupdate
+wttr-update
+doas ip link set enp0s31f6 down
+doas systemctl stop sshd.service
+/home/silas/.local/bin/wakeups.sh

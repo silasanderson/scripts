@@ -1,0 +1,15 @@
+#!/bin/sh
+
+state=$(nmcli radio wifi)
+case $state in
+	"enabled")
+		nmcli radio wifi off
+		notify-send -t 4000 "wifi off"
+		;;
+	"disabled")
+		nmcli radio wifi on
+		notify-send -t 4000 "wifi on"
+		;;
+	*)
+		notify-send -t 4000 "other"
+esac
