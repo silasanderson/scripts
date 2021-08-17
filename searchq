@@ -1,0 +1,5 @@
+#!/bin/bash
+
+    cat /tmp/bookmarks | dmenu -l 20 -p qb-open: > /tmp/x
+
+    qutebrowser :open "$(cat /tmp/x)"

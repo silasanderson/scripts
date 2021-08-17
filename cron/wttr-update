@@ -1,0 +1,24 @@
+#!/bin/sh
+
+if [ $(cat /sys/class/net/wl*/operstate 2>/dev/null) = up ]; then 
+
+curl 'v2d.wttr.in/Ashfield,Ma?Qm' > ~/.cache/wether/visual
+
+curl 'wttr.in/Ashfield,Ma?mQ0' > ~/.cache/wether/single
+
+curl 'wttr.in/Ashfield,Ma?nm' > ~/.cache/wether/long
+
+curl 'wttr.in/Ashfield,Ma?m' > ~/.cache/wether/long-full
+
+# curl 'https://radar.weather.gov/lite/N0R/BOX_loop.gif' > ~/.cache/wether/radar.gif; 
+curl 'https://s.w-x.co/staticmaps/wu/wu/wxtype1200_cur/conus/animate.png' > ~/.cache/wether/radar.gif; 
+
+curl 'https://s.w-x.co/staticmaps/wu/wu/wxtype1200_cur/conus/animate.png' > ~/.cache/wether/radar.gif; 
+
+curl 'https://s.w-x.co/staticmaps/wu/wu/wxtype1200_cur/usbgm/animate.png' > ~/.cache/wether/radar-east.gif
+curl 'https://radblast.wunderground.com/cgi-bin/radar/WUNIDS_map?num=6&type=N0Q&mapx=400&mapy=240&brand=wui&delay=50&frame=0&scale=1&transx=0&transy=0&severe=0&smooth=0&centerx=400&centery=240&station=BOX&rainsnow=0&lightning=0&noclutter=1&showlabels=1&showstorms=0&rand=27092482' > ~/.cache/wether/radar-box.gif
+curl 'https://radblast.wunderground.com/cgi-bin/radar/WUNIDS_map?num=40&type=N1P&mapx=400&mapy=240&brand=wui&delay=25&frame=0&scale=1&transx=612.5683060109295&transy=164.56830601092952&severe=0&smooth=0&centerx=1012.5683060109295&centery=404.5683060109295&station=BOX&rainsnow=0&lightning=0&noclutter=1&showlabels=1&showstorms=0&rand=27092491' > ~/.cache/wether/radar-box-closer.gif
+
+curl 'https://s.w-x.co/staticmaps/wu/fee4c/temp_cur/usa/20210627/1800z.jpg' > ~/.cache/wether/us-temp.jpg; 
+notify-send "wttr update"
+else exit ; fi

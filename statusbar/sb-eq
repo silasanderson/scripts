@@ -1,0 +1,3 @@
+#!/bin/sh
+eq="$(pulseaudio-equalizer status | grep "Equalizer status:" | awk '{print $3}')"
+if [ $eq = '[enabled]' ]; then echo 📢; else exit; fi

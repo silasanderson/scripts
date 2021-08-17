@@ -1,0 +1,12 @@
+#!/bin/sh
+state=$(bluetooth)
+case $state in
+	"bluetooth = off (software)")
+		exit
+		;;
+	"bluetooth = on")
+		printf "🅱 "  ; bluetoothctl info | grep "Name:" | awk '{print $2}'
+		;;
+	*)
+		notify-send $state
+esac
