@@ -1,5 +1,0 @@
-cat bin/w3d
-#!/bin/bash
-
-x=$@
-w3m "https://duckduckgo.com/?q=${x// /+}"

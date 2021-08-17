@@ -1,6 +1,0 @@
-#!/bin/sh
-
-while true; do
-		xsetroot -name " $(mt -hm) │ $(date "+%H:%M") │ $(bat) │ ﰝ $(pamixer --get-volume-human) │ $(internet) │ ﯦ $(xbacklight -get)"
-	sleep 1
-done

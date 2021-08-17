@@ -1,9 +1,0 @@
-#!/bin/sh
-
-if [ $(cat /sys/class/net/w*/operstate 2>/dev/null) = up ]; then 
-	/usr/local/bin/mw -y silas.anderson00@gmail.com 
-	/usr/bin/touch /home/silas/.cache/mail 
-	/usr/bin/pkill -RTMIN+5 dwmblocks;
-else exit ; fi
-
-# * * * * * /bin/sh /usr/local/bin/mw -y silas.anderson00@gmail.com && /usr/bin/touch /home/silas/.cache/mail && /usr/bin/pkill -RTMIN+5 dwmblocks
